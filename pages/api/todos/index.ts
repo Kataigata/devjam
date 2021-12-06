@@ -18,8 +18,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   };
 
   const response = handleCase[method];
-  if (response) response(req, res);
-  else res.status(400).json({ error: "No Response for This Request" });
+  if (response) {
+    res.status(200).end;
+    response(req, res);
+  } else res.status(400).json({ error: "No Response for This Request" });
 };
 
 export default handler;
