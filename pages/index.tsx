@@ -11,13 +11,16 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-      <Header />
+      {/* HOW TO DO A LINK TO ANOTHER PAGE
       <Link href="/about">
         <a>about</a>
-      </Link>
-      <Todo />
+      </Link> */}
 
-      <Image src={paw} alt="logo" width={150} height={150} />
+      <div className="toDoSection">
+        <Todo />
+      </div>
+
+      {/* <Image className="paw" src={paw} alt="logo" width={150} height={150} /> */}
     </main>
   );
 }

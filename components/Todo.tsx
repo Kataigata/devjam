@@ -5,7 +5,7 @@ export function Todo() {
       <div>
         <h2>Title</h2>
         <div>
-          <button className="purpleButton">Delete</button>
+          <button className="orangeButton">Delete</button>
           <button className="orangeButton">Go</button>
         </div>
       </div>
