@@ -1,26 +1,45 @@
 import { useState } from "react";
-import { fetchPets } from "./helpers/fetchPets";
-import { helloDev, helloWorld } from "./helpers/helloWorld";
 import Link from "next/link";
-import { Header } from "../components/Header";
 import React from "react";
-import { Todo } from "../components/Todo";
+import { TodoList } from "../components/Todo";
 import paw from "../imgs/paw.png";
 import Image from "next/image";
+import { Todo } from "../utils/types";
 
-export default function Home() {
+interface IndexProps {
+  todos: Array<Todo>;
+}
+
+function Index(props: IndexProps) {
+  const { todos } = props;
+
   return (
     <main>
-      {/* HOW TO DO A LINK TO ANOTHER PAGE
-      <Link href="/about">
-        <a>about</a>
-      </Link> */}
-
       <div className="toDoSection">
-        <Todo />
+        <TodoList />
+        {todos.map((t) => (
+          <div key={t._id}>
+            <Link href={`/${t._id}`}>
+              <h3 style={{ cursor: "pointer" }}>
+                {t.item} - {t.completed ? "completed" : "incomplete"}
+              </h3>
+            </Link>
+          </div>
+        ))}
       </div>
 
       {/* <Image className="paw" src={paw} alt="logo" width={150} height={150} /> */}
     </main>
   );
 }
+
+export async function getServerSideProps() {
+  const res = await fetch("http://localhost:3000/api/todos");
+  const todos = await res.json();
+
+  return {
+    props: { todos },
+  };
+}
+
+export default Index;
