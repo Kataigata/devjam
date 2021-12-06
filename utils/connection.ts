@@ -4,9 +4,7 @@ const { DATABASE_URL } = process.env;
 
 export const connect = async () => {
   const connection = await mongoose
-    .connect(
-      "mongodb+srv://DogToDo:Test1234@dogtodo.fpzjh.mongodb.net/todoDB?retryWrites=true&w=majority"
-    )
+    .connect(DATABASE_URL as string)
     .catch((err) => console.log(err));
   console.log("Mongoose Connection Established");
 

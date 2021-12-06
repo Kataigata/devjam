@@ -55,11 +55,9 @@ function Show(props: ShowProps) {
 }
 
 export async function getServerSideProps(context: any) {
-  const res = await fetch(
-    "http://localhost:3000/api/todos" + "/" + context.query.id
-  );
+  const res = await fetch(process.env.API_URL + "/" + context.query.id);
   const todo = await res.json();
-  return { props: { todo, url: "http://localhost:3000/api/todos" } };
+  return { props: { todo, url: process.env.API_URL } };
 }
 
 export default Show;

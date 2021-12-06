@@ -34,7 +34,7 @@ function Index(props: IndexProps) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/todos");
+  const res = await fetch(process.env.API_URL as string);
   const todos = await res.json();
 
   return {
