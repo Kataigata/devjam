@@ -20,7 +20,7 @@ export function Check(props: CheckProps) {
 
   const handleComplete = async () => {
     onChangeClick();
-
+    console.log();
     const newTodo: Todo = { ...todo, completed: todo.completed };
     if (!todo.completed) {
       newTodo.completed = true;
