@@ -104,3 +104,19 @@ button {
   text-align: center;
   top: 80%;
 }
+
+.taskDiv {
+  border: 2px solid #b7b9fc;
+  margin: 5px;
+  padding: 10px;
+  text-align: left;
+}
+
+.tasks {
+  padding: 4px;
+  display: inline;
+}
+
+.right {
+  float: right;
+}

@@ -5,25 +5,32 @@ import { TodoList } from "../components/Todo";
 import paw from "../imgs/paw.png";
 import Image from "next/image";
 import { Todo } from "../utils/types";
+import ReactDOM from "react-dom";
+import { Checkbox, Radio, Switch } from "pretty-checkbox-react";
+import styles from "../styles/Home.module.scss";
+import { Check } from "../components/Check";
+
+import "@djthoms/pretty-checkbox";
 
 interface IndexProps {
   todos: Array<Todo>;
+  url: string;
 }
 
 function Index(props: IndexProps) {
   const { todos } = props;
-
   return (
     <main>
       <div className="toDoSection">
         <TodoList />
         {todos.map((t) => (
-          <div key={t._id}>
-            <Link href={`/${t._id}`}>
-              <h3 style={{ cursor: "pointer" }}>
-                {t.item} - {t.completed ? "completed" : "incomplete"}
-              </h3>
-            </Link>
+          <div className="taskDiv" key={t._id}>
+            <h3 className="tasks">{t.item}</h3>
+            <span className="right">
+              {/* <Link href={`/${t._id}`}>
+              </Link> */}
+              <Check completed={t.completed} todo={t} url={props.url}></Check>
+            </span>
           </div>
         ))}
       </div>
@@ -38,7 +45,7 @@ export async function getServerSideProps() {
   const todos = await res.json();
 
   return {
-    props: { todos },
+    props: { todos, url: process.env.API_URL },
   };
 }
 
