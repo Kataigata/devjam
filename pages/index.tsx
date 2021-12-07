@@ -1,16 +1,24 @@
 import { useState } from "react";
-import Link from "next/link";
 import React from "react";
 import { TodoList } from "../components/Todo";
 import paw from "../imgs/paw.png";
 import Image from "next/image";
 import { Todo } from "../utils/types";
-import ReactDOM from "react-dom";
-import { Checkbox, Radio, Switch } from "pretty-checkbox-react";
-import styles from "../styles/Home.module.scss";
 import { Check } from "../components/Check";
-
+import Button from "@mui/material/Button";
 import "@djthoms/pretty-checkbox";
+import { Delete } from "../components/Delete";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Divider from "@mui/material/Divider";
+import { PinDropSharp } from "@mui/icons-material";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import { StyledEngineProvider } from "@mui/material/styles";
+import Themes from "../components/themes";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
 
 interface IndexProps {
   todos: Array<Todo>;
@@ -19,23 +27,47 @@ interface IndexProps {
 
 function Index(props: IndexProps) {
   const { todos } = props;
+
+  const theme = createTheme({
+    typography: {
+      fontFamily: "Fuzzy Bubbles",
+      fontSize: 16,
+    },
+  });
+
   return (
     <main>
-      <div className="toDoSection">
-        <TodoList />
-        {todos.map((t) => (
-          <div className="taskDiv" key={t._id}>
-            <h3 className="tasks">{t.item}</h3>
-            <span className="right">
-              {/* <Link href={`/${t._id}`}>
-              </Link> */}
-              <Check completed={t.completed} todo={t} url={props.url}></Check>
-            </span>
-          </div>
-        ))}
-      </div>
-
-      {/* <Image className="paw" src={paw} alt="logo" width={150} height={150} /> */}
+      <ThemeProvider theme={theme}>
+        <div className="toDoSection">
+          <TodoList />
+          <List className="list">
+            {todos.map((t) => {
+              return (
+                <>
+                  <ListItem
+                    key={t._id}
+                    secondaryAction={<Delete todo={t} url={props.url}></Delete>}
+                    disablePadding
+                  >
+                    <ListItemButton role={undefined} dense>
+                      <ListItemIcon>
+                        <Check
+                          completed={t.completed}
+                          todo={t}
+                          url={props.url}
+                        ></Check>
+                      </ListItemIcon>
+                      <ListItemText primary={t.item} />
+                    </ListItemButton>
+                  </ListItem>
+                  <Divider />
+                </>
+              );
+            })}
+          </List>
+        </div>
+        {/* <Image className="paw" src={paw} alt="logo" width={150} height={150} /> */}
+      </ThemeProvider>
     </main>
   );
 }

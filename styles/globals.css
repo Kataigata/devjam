@@ -105,12 +105,12 @@ button {
   top: 80%;
 }
 
-.taskDiv {
+/* .taskDiv {
   border: 2px solid #b7b9fc;
   margin: 5px;
   padding: 10px;
   text-align: left;
-}
+} */
 
 .tasks {
   padding: 4px;
@@ -119,4 +119,17 @@ button {
 
 .right {
   float: right;
+}
+
+.icon {
+  color: #de7f2c;
+}
+
+.list {
+  width: "100%";
+  max-width: 360;
+  background-color: #747bfd;
+  border-radius: 19px;
+  letter-spacing: 1px;
+  font-size: 20px;
 }

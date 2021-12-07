@@ -1,7 +1,7 @@
-import { Checkbox, Radio, Switch } from "pretty-checkbox-react";
 import React from "react";
 import { Todo } from "../utils/types";
 import { useRouter } from "next/router";
+import Checkbox from "@mui/material/Checkbox";
 
 interface CheckProps {
   completed: boolean;
@@ -40,10 +40,13 @@ export function Check(props: CheckProps) {
 
   return (
     <Checkbox
+      edge="start"
+      disableRipple
+      className="icon"
       checked={checked}
       onChange={handleComplete}
       defaultChecked={props.completed}
-    ></Checkbox>
+    />
   );
 }
 
