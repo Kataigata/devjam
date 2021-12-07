@@ -16,9 +16,9 @@ import { PinDropSharp } from "@mui/icons-material";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { StyledEngineProvider } from "@mui/material/styles";
-import Themes from "../components/themes";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import Dialog from "../components/dialog";
 
 interface IndexProps {
   todos: Array<Todo>;
@@ -39,32 +39,37 @@ function Index(props: IndexProps) {
     <main>
       <ThemeProvider theme={theme}>
         <div className="toDoSection">
-          <TodoList />
-          <List className="list">
-            {todos.map((t) => {
-              return (
-                <>
-                  <ListItem
-                    key={t._id}
-                    secondaryAction={<Delete todo={t} url={props.url}></Delete>}
-                    disablePadding
-                  >
-                    <ListItemButton role={undefined} dense>
-                      <ListItemIcon>
-                        <Check
-                          completed={t.completed}
-                          todo={t}
-                          url={props.url}
-                        ></Check>
-                      </ListItemIcon>
-                      <ListItemText primary={t.item} />
-                    </ListItemButton>
-                  </ListItem>
-                  <Divider />
-                </>
-              );
-            })}
-          </List>
+          <Stack spacing={2}>
+            <h1>TAILWAGGERS TASKS</h1>
+            <Dialog url={props.url} />
+            <List className="list">
+              {todos.map((t) => {
+                return (
+                  <>
+                    <ListItem
+                      key={t._id}
+                      secondaryAction={
+                        <Delete todo={t} url={props.url}></Delete>
+                      }
+                      disablePadding
+                    >
+                      <ListItemButton role={undefined} dense>
+                        <ListItemIcon>
+                          <Check
+                            completed={t.completed}
+                            todo={t}
+                            url={props.url}
+                          ></Check>
+                        </ListItemIcon>
+                        <ListItemText primary={t.item} />
+                      </ListItemButton>
+                    </ListItem>
+                    <Divider />
+                  </>
+                );
+              })}
+            </List>
+          </Stack>
         </div>
         {/* <Image className="paw" src={paw} alt="logo" width={150} height={150} /> */}
       </ThemeProvider>

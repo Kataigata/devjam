@@ -91,13 +91,10 @@ button {
   background-color: #6970fa;
   border-radius: 50px;
   box-shadow: 0px 0px 5px 1px #464baa;
-  position: absolute;
-  left: 50%;
-  top: 40%;
-  transform: translate(-50%, -50%);
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 20px;
-  padding-right: 125px;
-  padding-left: 125px;
+  transform: translateY(10%);
 }
 
 .footer {
@@ -132,4 +129,8 @@ button {
   border-radius: 19px;
   letter-spacing: 1px;
   font-size: 20px;
+}
+
+.orange {
+  background-color: #de7f2c;
 }
