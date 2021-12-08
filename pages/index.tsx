@@ -19,6 +19,8 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Dialog from "../components/dialog";
+import useSound from "use-sound";
+import music from "../sounds/test";
 
 interface IndexProps {
   todos: Array<Todo>;
@@ -34,6 +36,8 @@ function Index(props: IndexProps) {
       fontSize: 16,
     },
   });
+
+  const [playActive] = useSound(music);
 
   return (
     <main>
