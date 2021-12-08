@@ -44,6 +44,7 @@ function SimpleDialog(props: SimpleDialogProps) {
   };
 
   const handleListItemClick = (value: string) => {
+    bark.current?.play();
     handleSubmit(value);
     onClose(value);
   };
@@ -67,6 +68,10 @@ function SimpleDialog(props: SimpleDialogProps) {
 
     router.push("/");
   };
+
+  const bark = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== "undefined" ? new Audio("/audio/bark.wav") : undefined
+  );
 
   return (
     <Dialog onClose={handleClose} open={open}>

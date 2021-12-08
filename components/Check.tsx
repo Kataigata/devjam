@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Todo } from "../utils/types";
 import { useRouter } from "next/router";
 import Checkbox from "@mui/material/Checkbox";
@@ -18,9 +18,15 @@ export function Check(props: CheckProps) {
     setChecked((prev) => !prev);
   }, []);
 
+  const pant = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== "undefined" ? new Audio("/audio/shortpant.wav") : undefined
+  );
+
   const handleComplete = async () => {
     onChangeClick();
-    console.log();
+
+    pant.current?.play();
+
     const newTodo: Todo = { ...todo, completed: todo.completed };
     if (!todo.completed) {
       newTodo.completed = true;
@@ -39,14 +45,16 @@ export function Check(props: CheckProps) {
   };
 
   return (
-    <Checkbox
-      edge="start"
-      disableRipple
-      className="icon"
-      checked={checked}
-      onChange={handleComplete}
-      defaultChecked={props.completed}
-    />
+    <>
+      <Checkbox
+        edge="start"
+        disableRipple
+        className="icon"
+        checked={checked}
+        onChange={handleComplete}
+        defaultChecked={props.completed}
+      />
+    </>
   );
 }
 

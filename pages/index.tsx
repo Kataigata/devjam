@@ -20,6 +20,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Dialog from "../components/dialog";
 import useSound from "use-sound";
+import ReactAudioPlayer from "react-audio-player";
 
 interface IndexProps {
   todos: Array<Todo>;
@@ -38,6 +39,7 @@ function Index(props: IndexProps) {
 
   return (
     <main>
+      {/* <ReactAudioPlayer autoPlay={true} src="/audio/bark.wav" controls /> */}
       <ThemeProvider theme={theme}>
         <div className="toDoSection">
           <Stack spacing={2}>
