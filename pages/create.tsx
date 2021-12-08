@@ -33,12 +33,12 @@ function Create(props: CreateProps) {
     <div>
       <h1>Create a New Todo</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" ref={item}></input>
+        {/* <input type="text" ref={item}></input>
         <input
           className="orangeButton"
           type="submit"
           value="create todo"
-        ></input>
+        ></input> */}
       </form>
     </div>
   );

@@ -44,7 +44,28 @@ function SimpleDialog(props: SimpleDialogProps) {
   };
 
   const handleListItemClick = (value: string) => {
+    handleSubmit(value);
     onClose(value);
+  };
+
+  const router = useRouter();
+  const item = useRef<HTMLInputElement>(null);
+
+  const handleSubmit = async (value: string) => {
+    let todo: Todo = { item: "", completed: false };
+    if (value !== null) {
+      todo = { item: value, completed: false };
+    }
+
+    await fetch(props.url, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(todo),
+    });
+
+    router.push("/");
   };
 
   return (
@@ -89,27 +110,6 @@ export default function TaskDialog(props: DialogProps) {
   const handleClose = (value: string) => {
     setOpen(false);
     setSelectedValue(value);
-    handleSubmit(value);
-  };
-
-  const router = useRouter();
-  const item = useRef<HTMLInputElement>(null);
-
-  const handleSubmit = async (value: string) => {
-    let todo: Todo = { item: "", completed: false };
-    if (value !== null) {
-      todo = { item: value, completed: false };
-    }
-
-    await fetch(props.url, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(todo),
-    });
-
-    router.push("/");
   };
 
   return (
