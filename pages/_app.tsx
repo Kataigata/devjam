@@ -4,9 +4,11 @@ import { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <div id="page-container">
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </div>
   );
 }
 

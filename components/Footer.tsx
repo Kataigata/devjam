@@ -1,3 +1,7 @@
+import Avatar from "@mui/material/Avatar";
+import Image from "next/image";
+import doggo from "../imgs/doggo.jpg";
+
 export function Footer() {
-  return <h1 className="footer">2021 Nicole Rowley</h1>;
+  return <div></div>;
 }

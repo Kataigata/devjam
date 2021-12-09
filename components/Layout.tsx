@@ -8,9 +8,9 @@ type LayoutProps = {
 export function Layout(props: LayoutProps) {
   return (
     <>
-      {/* <Header></Header> */}
-      {props.children}
-      {/* <Footer></Footer> */}
+      <Header></Header>
+      <div id="contet-wrap">{props.children}</div>
+      <Footer />
     </>
   );
 }

@@ -1,3 +1,7 @@
 export function Header() {
-  return <h1>Header</h1>;
+  return (
+    <div className="header">
+      <span className="bold">TAILWAGGERS TASKS</span>- TODO APP FOR DOGS
+    </div>
+  );
 }
