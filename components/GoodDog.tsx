@@ -33,7 +33,13 @@ export default function SimpleFade() {
 
   return (
     <>
-      <Image src={excited} width={80} height={80} alt="Excited doggo" />
+      <Image
+        src={excited}
+        width={80}
+        height={80}
+        alt="Excited doggo"
+        className="shake"
+      />
       <Box sx={{ height: 2 }}>
         <p style={{ margin: -10 }}>DOGGO OF THE WEEK</p>
         <FormControlLabel
