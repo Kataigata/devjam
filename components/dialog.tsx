@@ -54,8 +54,12 @@ function SimpleDialog(props: SimpleDialogProps) {
 
   const handleSubmit = async (value: string) => {
     let todo: Todo = { item: "", completed: false };
+
     if (value !== null) {
-      todo = { item: value, completed: false };
+      todo = {
+        item: value,
+        completed: false,
+      };
     }
 
     await fetch(props.url, {
@@ -87,18 +91,6 @@ function SimpleDialog(props: SimpleDialogProps) {
             <ListItemText primary={task} />
           </ListItem>
         ))}
-        {/* <ListItem
-          autoFocus
-          button
-          onClick={() => handleListItemClick("addAccount")}
-        >
-          <ListItemAvatar>
-            <Avatar>
-              <AddIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Add account" />
-        </ListItem> */}
       </List>
     </Dialog>
   );
@@ -119,9 +111,6 @@ export default function TaskDialog(props: DialogProps) {
 
   return (
     <div>
-      {/* <Typography variant="subtitle1" component="div">
-        Selected: {selectedValue}
-      </Typography> */}
       <br />
       <Button variant="contained" className="orange" onClick={handleClickOpen}>
         New Task

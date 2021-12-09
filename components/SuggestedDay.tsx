@@ -27,16 +27,51 @@ export default function CustomizedTimeline(props: SuggestedProps) {
     },
   });
 
+  const showTodo = (todo: Todo) => {
+    if (todo.completed) {
+      return;
+    } else {
+      const scheduleTime = getTime();
+      return (
+        <>
+          <SuggestedItem time={scheduleTime} task={todo.item} />
+        </>
+      );
+    }
+  };
+
+  const time = [
+    "8:00am",
+    "9:00am",
+    "10:00am",
+    "11:00am",
+    "12:00pm",
+    "1:00pm",
+    "2:00pm",
+    "3:00pm",
+    "4:00pm",
+    "5:00pm",
+    "6:00pm",
+  ];
+
+  let currentTime = "8:00am";
+
+  const getTime = () => {
+    for (let index = 0; index < time.length; index++) {
+      if (currentTime == time[index]) {
+        currentTime = time[index + 1];
+        return currentTime;
+      }
+    }
+    return currentTime;
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <h2>Suggested Task Order</h2>
+      <h2>Suggested Schedule</h2>
       <Timeline position="alternate">
         {props.todos.map((t) => {
-          return (
-            <>
-              <SuggestedItem time={"9:30 am"} task={t.item} />
-            </>
-          );
+          return <>{showTodo(t)}</>;
         })}
       </Timeline>
     </ThemeProvider>

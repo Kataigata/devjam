@@ -42,6 +42,8 @@ export function Check(props: CheckProps) {
       body: JSON.stringify(newTodo),
     });
     setTodo(newTodo);
+
+    router.push("/");
   };
 
   return (
