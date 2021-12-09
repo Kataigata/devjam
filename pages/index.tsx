@@ -21,6 +21,7 @@ import Stack from "@mui/material/Stack";
 import Dialog from "../components/dialog";
 import GoodDog from "../components/GoodDog";
 import Doggos from "../components/Doggos";
+import TopDoggosList from "../components/TopDoggosList";
 
 interface IndexProps {
   todos: Array<Todo>;
@@ -77,9 +78,9 @@ function Index(props: IndexProps) {
           </Stack>
         </div>
         <div className="divUnder">
-          <h2>TODAYS TOP DOGGOS</h2>
           <div className="cards">
-            <Doggos
+            <TopDoggosList />
+            {/* <Doggos
               image={
                 "https://cdn.shopify.com/s/files/1/0306/4253/6586/products/the-king-custom-vintage-pet-portrait-962521_650x.jpg?v=1625222628"
               }
@@ -126,7 +127,7 @@ function Index(props: IndexProps) {
               alt={"dogs"}
               title={"Max"}
               desc={"Today has been ruff!"}
-            />
+            /> */}
           </div>
         </div>
       </ThemeProvider>

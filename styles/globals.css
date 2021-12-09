@@ -88,9 +88,9 @@ button {
 }
 
 .toDoSection {
-  background-color: #6970fa;
+  /* background-color: #6970fa;
   border-radius: 50px;
-  box-shadow: 0px 0px 5px 1px #464baa;
+  box-shadow: 0px 0px 5px 1px #464baa; */
   max-width: 600px;
   margin: 0 auto;
 
