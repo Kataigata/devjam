@@ -23,6 +23,8 @@ const tasks = [
   "Fetch Ball",
   "Refuse to take a Bath",
   "Bark for no Reason",
+  "Walkies",
+  "Be Cute",
 ];
 
 export interface SimpleDialogProps {

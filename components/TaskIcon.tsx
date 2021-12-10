@@ -6,6 +6,8 @@ import MailIcon from "@mui/icons-material/MailOutlined";
 import RunIcon from "@mui/icons-material/DirectionsRunOutlined";
 import BathIcon from "@mui/icons-material/BathtubOutlined";
 import DogIcon from "@mui/icons-material/PetsOutlined";
+import DirectionsWalkOutlinedIcon from "@mui/icons-material/DirectionsWalkOutlined";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 interface TaskProps {
   task: string;
@@ -53,6 +55,18 @@ export default function CustomizedTimeline(props: TaskProps) {
       return (
         <>
           <DogIcon />
+        </>
+      );
+    } else if (props.task == "Walkies") {
+      return (
+        <>
+          <DirectionsWalkOutlinedIcon />
+        </>
+      );
+    } else if (props.task == "Be Cute") {
+      return (
+        <>
+          <FavoriteBorderOutlinedIcon />
         </>
       );
     } else {
