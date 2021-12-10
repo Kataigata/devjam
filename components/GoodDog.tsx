@@ -52,7 +52,7 @@ export default function SimpleFade() {
               <iframe
                 frameBorder="0"
                 height="300"
-                src="https://giphy.com/embed/GbQxQ7QSeL71NtXAs1/video"
+                src="https://giphy.com/embed/FaHOtxa23Tb4wtygMg/video"
                 width="300"
               ></iframe>
             </div>
